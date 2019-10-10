@@ -1,0 +1,53 @@
+VUE/CLI note book
+
+step1: install
+npm install -g @vue/cli
+
+step2: Create Project
+vue create my-project
+
+Instructures:
+在已有的项目中安装插件：
+vue add eslint
+
+预设配置（preset）：
+在 vue create 过程中保存的预设配置会被放在你的 home 目录下的一个配置文件中 (~/.vuerc)。你可以通过直接编辑这个文件来调整、添加、删除保存好的配置。
+
+vue-cli-service serve
+通过npm run serve启动一个webpack-dev-serve开发服务器
+vue-cli-service build
+通过npm run build 启动，会在dist/目录下产生可用于生产环境的包。
+vue-cli-service inspect
+查看一个 Vue CLI 项目的 webpack config
+
+组件化实践
+好处：提升效率，高效复用，协同开发
+1.组件通信
+父组件 ==>> 子组件：
+    。属性 props
+    。特性 $attrs   传递给子组件时， 没有在子组件中写入props， 就会被当作$attrs对象的属性。
+    。引用 $refs
+    。使用 $children  子组件数组来访问子组件内部的数据， 子组件的顺序不保证。
+    。父组件（或祖辈组件）provide和 子组件inject (类似props)
+
+
+子组件 ==>> 父组件：自定义事件
+    使用 $emit, 父组件给子组件的绑定一个自定义事件，并传一个函数（在父组件中声明的函数），
+    然后子组件中使用$emit('eventFunc', canshu)触发 父组件中的函数， 并且可以把子组件中的数据通过函数参数传递给父组件，让父组件来实现更改子组件的数据。
+
+兄弟组件： 通过共同祖辈组件
+通过共同的祖辈组件搭桥，$parent 或$root.
+
+任意两个组件之间：事件总线或vuex
+解决组件 强耦合
+事件总线： 创建一个Bus类事件派发， 监听和回调管理
+vuex: 创建唯一的全局数据管理者 store， 通过它管理数据并通知组件状态变更。
+
+2.插槽slot， 内容分发
+匿名插槽，具名插槽， 作用域插槽
+子组件使用slot 留位置表示需要替换的内容： <slot name="xxx" foo="foo"></slot>
+父组件提供内容：    <template v-slot:xxx="slotProps"></template>
+                 <template v-slot:default></template>
+                 slotProps就是我们为props对象起得名字，在父组件中就能通过slotProps.foo可以访问子组件传入的foo
+                 父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
+
