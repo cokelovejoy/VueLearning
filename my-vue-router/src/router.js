@@ -2,8 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 
+// 应用插件：做了什么？install
+// install里面做了什么？
+// 1.挂载$router
+// 2.注册组件
 Vue.use(Router)
 
+// router做了什么？
+// 1.解析路由配置
+// 2.响应url变化
+// 3.事件监听hashchange
+// 4.组件切换？怎么切换
 export default new Router({
   routes: [
     {
