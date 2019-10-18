@@ -4,8 +4,8 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 
 Vue.use(ZVueRouter)
-// Vue.use() 应用插件, 里面会掉一个install 方法
-// install 方法里面会
+// Vue.use() 应用插件, 里面会调用一个install 方法
+// install 方法里面会:
 // 1. 挂载$router
 // 2. 注册组件
 
