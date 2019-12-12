@@ -1,0 +1,21 @@
+{
+  "name": "vue-auto-router-cli",
+  "version": "1.0.15",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "kkb": "./bin/kkb"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "handlebars": "^4.5.3",
+    "log-symbols": "^3.0.0"
+  }
+}

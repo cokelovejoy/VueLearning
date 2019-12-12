@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+// shell 脚本
+const program = require('commander')
+program.version(require('../package').version)
+    .command('init <name>', 'init project')
+    .command('refresh', 'refresh routes...')
+program.parse(process.argv)
